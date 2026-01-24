@@ -252,6 +252,10 @@ Developed using:
 - CSS3
 - JavaScript
 
+## Portfolio
+
+For more information about related projects in my portfolio, see [PROJECTS.md](PROJECTS.md).
+
 ---
 
 **Last Updated:** 2025
