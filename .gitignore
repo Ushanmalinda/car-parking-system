@@ -1,0 +1,26 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+~*
+
+# Configuration files (optional - uncomment if you want to exclude)
+# config/config.php
+
+# Debug files
+debug.php
+test*.php
+fix*.php
+diagnose.php
+setup*.php
