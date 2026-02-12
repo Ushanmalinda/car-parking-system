@@ -1,227 +1,258 @@
-# 🚗 Car Parking Management System
+# Car Parking Management System
 
-A comprehensive web-based parking management system built with PHP and MySQL. This system allows administrators to manage parking slots, bookings, vehicle categories, and customer support tickets efficiently.
+A comprehensive PHP-based car parking management system with admin dashboard, booking management, and reporting features.
 
-## ✨ Features
+## Features
 
-### 👨‍💼 Admin Features
-- **Dashboard** - Overview of parking statistics, revenue, and occupancy
-- **Booking Management** - Create, view, and manage parking bookings
-- **Parking Slot Management** - Add, edit, and monitor parking slot availability
-- **Vehicle Categories** - Manage different vehicle types (Two-wheeler, Four-wheeler, etc.)
-- **User Management** - Manage customer and staff accounts
-- **Exit Vehicle** - Process vehicle exits and calculate parking fees
-- **Reports** - Generate detailed reports on bookings, revenue, and usage
-- **Support System** - Handle customer bug reports and support requests
-- **Settings** - Configure system settings and preferences
-- **Multi-Currency Support** - Support for multiple currencies
+- **User Authentication**: Secure login system for admin and staff
+- **Dashboard**: Real-time statistics and overview
+- **Parking Slot Management**: Add, edit, and manage parking slots
+- **Booking Management**: Create and manage vehicle parking bookings
+- **Vehicle Exit**: Process vehicle exit with automatic charge calculation
+- **Vehicle Categories**: Manage different vehicle types and rates
+- **Reports**: Generate revenue and booking reports
+- **User Management**: Add and manage system users
+- **Responsive Design**: Works on desktop and mobile devices
 
-### 👤 User Features
-- **User Dashboard** - View personal booking history and status
-- **Book Parking Slot** - Reserve parking slots online
-- **Contact Support** - Submit bug reports and support tickets
-- **Account Management** - Manage personal profile and settings
+## System Requirements
 
-### 🔐 Security Features
-- Secure login system with password hashing
-- Session management with timeout
-- Role-based access control (System Admin, Admin, User)
-- Activity logging for audit trails
-- SQL injection protection with prepared statements
+- PHP 7.4 or higher
+- MySQL 5.7 or higher
+- Apache/Nginx web server
+- Web browser (Chrome, Firefox, Safari, Edge)
 
-## 🛠️ Technologies Used
+## Installation Instructions
 
-- **Backend**: PHP 7.4+
-- **Database**: MySQL
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Server**: Apache (XAMPP/WAMP)
-- **Security**: Password hashing, Prepared statements
+### Step 1: Extract Files
+Extract the project files to your web server directory:
+- XAMPP: `C:/xampp/htdocs/car-parking-system`
+- WAMP: `C:/wamp64/www/car-parking-system`
+- Other: Your web server's document root
 
-## 📋 Prerequisites
-
-Before you begin, ensure you have the following installed:
-- XAMPP/WAMP/LAMP (Apache, PHP 7.4+, MySQL)
-- Web browser (Chrome, Firefox, Edge, etc.)
-- Git (for version control)
-
-## 🚀 Installation
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/Ushanmalinda/car-parking-system.git
-cd car-parking-system
-```
-
-### 2. Move to Web Server Directory
-Copy the project folder to your web server's document root:
-- **XAMPP**: `C:\xampp\htdocs\`
-- **WAMP**: `C:\wamp64\www\`
-- **LAMP**: `/var/www/html/`
-
-### 3. Database Setup
-
-#### Option 1: Using phpMyAdmin
-1. Open phpMyAdmin: `http://localhost/phpmyadmin`
+### Step 2: Create Database
+1. Open phpMyAdmin (http://localhost/phpmyadmin)
 2. Create a new database named `car_parking_system`
-3. Import the SQL file: `database/car_parking_system.sql`
-4. (Optional) Import additional SQL files if needed:
-   - `database/add_currency_support.sql`
-   - `database/add_support_system.sql`
+3. Import the database schema:
+   - Click on the `car_parking_system` database
+   - Go to the "Import" tab
+   - Choose the file: `database/car_parking_system.sql`
+   - Click "Go" to import
 
-#### Option 2: Using MySQL Command Line
-```bash
-mysql -u root -p
-CREATE DATABASE car_parking_system;
-USE car_parking_system;
-SOURCE database/car_parking_system.sql;
-exit;
-```
+### Step 3: Configure Database Connection
+1. Open `config/config.php`
+2. Update the database credentials if needed:
+   ```php
+   define('DB_HOST', 'localhost');
+   define('DB_USER', 'root');
+   define('DB_PASS', '');
+   define('DB_NAME', 'car_parking_system');
+   ```
 
-### 4. Configure Database Connection
-Edit `config/config.php` and update database credentials if needed:
+### Step 4: Update Site URL
+In `config/config.php`, update the SITE_URL:
 ```php
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', ''); // Your MySQL password
-define('DB_NAME', 'car_parking_system');
+define('SITE_URL', 'http://localhost/car-parking-system/');
 ```
 
-### 5. Access the Application
-Open your web browser and navigate to:
-```
-http://localhost/car-parking-system/
-```
+### Step 5: Set Permissions
+Ensure the web server has read/write permissions for the project directory.
 
-## 🔑 Default Login Credentials
+## Default Login Credentials
 
-### Admin Account
-- **Username**: `admin`
-- **Password**: `admin123`
+**Admin Account:**
+- Username: `admin`
+- Password: `admin123`
 
-### System Admin Account (if applicable)
-- **Username**: `sysadmin`
-- **Password**: `sysadmin123`
+**Important:** Change the default password after first login!
 
-⚠️ **Important**: Change these default passwords immediately after first login!
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 car-parking-system/
 ├── admin/                      # Admin panel files
-│   ├── bookings.php           # Manage bookings
 │   ├── dashboard.php          # Admin dashboard
-│   ├── exit-vehicle.php       # Vehicle exit processing
+│   ├── parking-slots.php      # Slot management
 │   ├── new-booking.php        # Create new booking
-│   ├── parking-slots.php      # Manage parking slots
-│   ├── reports.php            # Generate reports
-│   ├── settings.php           # System settings
+│   ├── bookings.php           # View all bookings
+│   ├── exit-vehicle.php       # Process vehicle exit
+│   ├── view-booking.php       # Booking details
+│   ├── vehicle-categories.php # Category management
+│   ├── reports.php            # Reports & analytics
 │   ├── users.php              # User management
-│   ├── vehicle-categories.php # Vehicle category management
-│   └── ...
-├── assets/                     # Static assets
-│   ├── css/                   # Stylesheets
-│   ├── images/                # Images
-│   └── js/                    # JavaScript files
-├── config/                     # Configuration files
-│   ├── config.php             # Main configuration
-│   └── database.php           # Database connection class
-├── database/                   # SQL files
+│   └── sidebar.php            # Navigation sidebar
+├── assets/                    # Static assets
+│   ├── css/
+│   │   └── style.css         # Main stylesheet
+│   ├── js/
+│   │   └── main.js           # JavaScript functions
+│   └── images/               # Image files
+├── config/                    # Configuration files
+│   ├── config.php            # Main configuration
+│   └── database.php          # Database connection
+├── database/                  # Database files
 │   └── car_parking_system.sql # Database schema
-├── includes/                   # Reusable PHP includes
-│   ├── footer.php             # Footer template
-│   ├── functions.php          # Helper functions
-│   └── header.php             # Header template
-├── user/                       # User panel files
-│   └── dashboard.php          # User dashboard
-├── index.php                   # Login page
-├── logout.php                  # Logout handler
-├── contact-support.php         # Support contact page
-└── README.md                   # This file
+├── includes/                  # Reusable PHP files
+│   ├── functions.php         # Helper functions
+│   ├── header.php           # Page header
+│   └── footer.php           # Page footer
+├── user/                      # User panel files
+├── index.php                 # Login page
+├── logout.php                # Logout handler
+└── README.md                 # This file
 ```
 
-## 💡 Usage
+## Usage Guide
 
-### For Administrators:
-1. Login with admin credentials
-2. Navigate to **Dashboard** to view system overview
-3. Manage **Parking Slots** - Add, edit, or delete parking spaces
-4. Create **Bookings** for customers
-5. Process **Vehicle Exits** and calculate fees
-6. View **Reports** for business insights
-7. Manage **Users** and **Vehicle Categories**
+### 1. Login
+- Navigate to `http://localhost/car-parking-system/`
+- Enter admin credentials
+- Click "Login"
 
-### For Users:
-1. Register or receive credentials from admin
-2. Login to user dashboard
-3. Book parking slots online
-4. View booking history
-5. Contact support for assistance
+### 2. Manage Parking Slots
+- Go to "Parking Slots" from the sidebar
+- Click "Add New Slot" to create slots
+- Edit or delete existing slots
 
-## 🔧 Configuration
+### 3. Create Booking
+- Go to "New Booking"
+- Fill in vehicle and owner details
+- Select parking slot
+- Submit to create booking
 
-### Parking Rates
-Edit `config/config.php` to modify parking rates:
+### 4. Process Exit
+- Go to "All Bookings"
+- Find the active booking
+- Click "Exit" button
+- Select payment method
+- Confirm to generate bill
+
+### 5. View Reports
+- Go to "Reports & Analytics"
+- Select date range
+- View revenue and booking statistics
+
+### 6. Manage Users
+- Go to "Users"
+- Add new staff/admin users
+- Activate/deactivate users
+
+## Parking Charges
+
+Default rates (configurable in `config/config.php`):
+- Two Wheeler: ₹10 per hour
+- Four Wheeler: ₹20 per hour
+
+Minimum charge: 1 hour
+Partial hours are rounded up to the next full hour.
+
+## Features in Detail
+
+### Parking Slot Management
+- Add multiple parking slots
+- Organize by floor and slot number
+- Set vehicle type (two-wheeler/four-wheeler)
+- Track slot status (available/occupied/maintenance)
+
+### Booking System
+- Record vehicle and owner information
+- Assign parking slot automatically
+- Track entry time
+- Calculate parking duration
+- Generate unique booking numbers
+
+### Exit & Billing
+- Automatic charge calculation based on duration
+- Multiple payment methods (Cash, Card, UPI, Online)
+- Print receipt option
+- Update slot availability automatically
+
+### Reports
+- Daily revenue reports
+- Booking statistics
+- Vehicle type analysis
+- Date-range filtering
+- Export to CSV (optional enhancement)
+
+## Customization
+
+### Change Parking Rates
+Edit `config/config.php`:
 ```php
-define('TWO_WHEELER_RATE', 10);  // Per hour
-define('FOUR_WHEELER_RATE', 20); // Per hour
+define('TWO_WHEELER_RATE', 10);  // Rate per hour
+define('FOUR_WHEELER_RATE', 20); // Rate per hour
 ```
 
-### Session Timeout
-Adjust session timeout in `config/config.php`:
-```php
-define('SESSION_TIMEOUT', 3600); // 1 hour in seconds
-```
+### Add More Vehicle Categories
+Go to "Vehicle Categories" in admin panel and add new categories with custom rates.
 
-### Timezone
-Change timezone in `config/config.php`:
-```php
-date_default_timezone_set('Asia/Kolkata');
-```
+### Modify Appearance
+Edit `assets/css/style.css` to customize colors, fonts, and layout.
 
-## 🐛 Troubleshooting
+## Security Features
 
-### Database Connection Issues
-- Verify MySQL service is running
+- Password hashing using PHP's `password_hash()`
+- SQL injection prevention with prepared statements
+- XSS protection with input sanitization
+- Session management
+- Activity logging
+
+## Troubleshooting
+
+### Database Connection Error
 - Check database credentials in `config/config.php`
-- Ensure database `car_parking_system` exists
+- Ensure MySQL service is running
+- Verify database name is correct
 
-### Login Problems
+### Login Not Working
 - Clear browser cache and cookies
-- Check if user account status is 'active' in database
-- Verify password matches default credentials
+- Check if database was imported correctly
+- Verify user exists in `users` table
 
-### Permission Issues
-- Ensure web server has read/write permissions on project folder
-- Check file permissions (755 for directories, 644 for files)
+### Page Not Found
+- Check SITE_URL in `config/config.php`
+- Ensure mod_rewrite is enabled (Apache)
+- Verify file paths are correct
 
-## 🤝 Contributing
+## Browser Support
 
-Contributions are welcome! Please follow these steps:
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Opera (latest)
 
-## 📝 License
+## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is open-source and available for educational purposes.
 
-## 👨‍💻 Developer
+## Support
 
-**Ushan Malinda**
-- GitHub: [@Ushanmalinda](https://github.com/Ushanmalinda)
+For issues or questions, please check:
+- Database import errors
+- File permissions
+- PHP version compatibility
+- Web server configuration
 
-## 📧 Support
+## Future Enhancements
 
-For support, email your queries or open an issue in the GitHub repository.
+- QR code generation for bookings
+- SMS/Email notifications
+- Monthly pass system
+- Online payment gateway integration
+- Mobile app
+- CCTV integration
+- Automated barrier control
 
-## 🙏 Acknowledgments
+## Credits
 
-- Thanks to all contributors who help improve this system
-- Built with dedication to streamline parking management
+Developed using:
+- PHP
+- MySQL
+- HTML5
+- CSS3
+- JavaScript
 
 ---
 
-**Made with ❤️ for efficient parking management**
+**Last Updated:** 2025
+**Version:** 1.0.0

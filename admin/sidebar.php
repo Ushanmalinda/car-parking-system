@@ -1,9 +1,6 @@
 <div class="sidebar">
     <div class="sidebar-header">
         <h2>Admin Panel</h2>
-        <p style="margin: 5px 0 0 0; font-size: 14px; opacity: 0.8;">
-            <?php echo htmlspecialchars($_SESSION['full_name']); ?>
-        </p>
     </div>
     <nav class="sidebar-nav">
         <a href="dashboard.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : ''; ?>">
@@ -38,10 +35,8 @@
         <a href="settings.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active' : ''; ?>">
             <span>⚙️</span> Settings
         </a>
-    </nav>
-    <div class="sidebar-footer">
-        <a href="../logout.php" class="nav-item logout-btn">
+        <a href="../logout.php" class="nav-item">
             <span>🚪</span> Logout
         </a>
-    </div>
+    </nav>
 </div>

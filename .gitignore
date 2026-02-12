@@ -1,26 +1,27 @@
-# System files
-.DS_Store
-Thumbs.db
+# Configuration files with sensitive data
+config/config.php
+config/database.php
+
+# Temporary files
+diagnose.php
+fix_password.php
+fix_sysadmin.php
 
 # IDE files
 .vscode/
 .idea/
-*.sublime-*
+*.sublime-project
+*.sublime-workspace
 
-# Logs
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Log files
 *.log
 
-# Temporary files
+# Backup files
+*.bak
 *.tmp
-*.temp
-~*
-
-# Configuration files (optional - uncomment if you want to exclude)
-# config/config.php
-
-# Debug files
-debug.php
-test*.php
-fix*.php
-diagnose.php
-setup*.php
+*~

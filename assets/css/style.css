@@ -69,8 +69,6 @@ body {
     left: 0;
     top: 0;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
 }
 
 .sidebar-header {
@@ -86,14 +84,6 @@ body {
 
 .sidebar-nav {
     padding: 20px 0;
-    flex: 1;
-}
-
-.sidebar-footer {
-    padding: 10px 0;
-    background: #1a252f;
-    border-top: 1px solid #34495e;
-    margin-top: auto;
 }
 
 .nav-item {
@@ -114,17 +104,6 @@ body {
 .nav-item.active {
     background: #34495e;
     border-left-color: #3498db;
-}
-
-.nav-item.logout-btn {
-    color: #e74c3c;
-    font-weight: 600;
-}
-
-.nav-item.logout-btn:hover {
-    background: #e74c3c;
-    color: white;
-    border-left-color: #c0392b;
 }
 
 .nav-item span {
