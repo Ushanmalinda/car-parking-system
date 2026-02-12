@@ -41,10 +41,16 @@ class Database {
     }
 
     public function query($sql) {
+        if (!$this->conn) {
+            die("Database connection error: " . $this->error);
+        }
         return $this->conn->query($sql);
     }
 
     public function escape($value) {
+        if (!$this->conn) {
+            die("Database connection error: " . $this->error);
+        }
         return $this->conn->real_escape_string($value);
     }
 
