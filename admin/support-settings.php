@@ -154,28 +154,6 @@ include '../includes/header.php';
                 <button type="submit" class="btn btn-primary">💾 Save Support Settings</button>
                 <a href="bug-reports.php" class="btn btn-secondary">📋 View Bug Reports</a>
             </form>
-            
-            <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #ecf0f1;">
-                <h3>How It Works</h3>
-                <div class="detail-grid">
-                    <div class="detail-item">
-                        <span class="label">📧 Email Support:</span>
-                        <span class="value">Customers click "Email" → Opens Gmail with your email pre-filled</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="label">💬 WhatsApp:</span>
-                        <span class="value">Customers click "WhatsApp" → Opens WhatsApp chat with you</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="label">📱 Phone:</span>
-                        <span class="value">Customers can call you directly</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="label">🐛 Bug Reports:</span>
-                        <span class="value">All bug reports saved in database for tracking</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
